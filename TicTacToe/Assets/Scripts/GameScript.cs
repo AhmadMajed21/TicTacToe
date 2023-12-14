@@ -30,7 +30,7 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckWin();
     }
 
     public void CellButton(int cell)
@@ -53,7 +53,48 @@ public class GameScript : MonoBehaviour
 
     void CheckWin()
     {
+        //Rows
+        if (cells[0].text == cells[1].text && cells[0].text == cells[2].text)
+        {
+            
+        }
 
+        if (cells[3].text == cells[4].text && cells[3].text == cells[5].text)
+        {
+
+        }
+
+        if (cells[6].text == cells[7].text && cells[6].text == cells[8].text)
+        {
+
+        }
+
+        //Collumns
+        if (cells[0].text == cells[3].text && cells[0].text == cells[6].text)
+        {
+
+        }
+
+        if (cells[1].text == cells[4].text && cells[1].text == cells[7].text)
+        {
+
+        }
+
+        if (cells[2].text == cells[5].text && cells[2].text == cells[8].text)
+        {
+
+        }
+
+        //Diagonal
+        if (cells[0].text == cells[4].text && cells[0].text == cells[8].text)
+        {
+
+        }
+
+        if (cells[2].text == cells[4].text && cells[2].text == cells[6].text)
+        {
+
+        }
     }
 
     void ResetGame()
