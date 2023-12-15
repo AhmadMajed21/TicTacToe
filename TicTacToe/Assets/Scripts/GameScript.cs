@@ -12,7 +12,7 @@ public class GameScript : MonoBehaviour
     [SerializeField] TMP_Text xPlayerNameText;
     [SerializeField] TMP_Text oPlayerNameText;
 
-    float turn = 1;
+    public float turn = 1;
 
     public string xPlayerName;
     public string oPlayerName;
@@ -115,7 +115,7 @@ public class GameScript : MonoBehaviour
         ResetGame();
     }
 
-    void ResetGame()
+    public void ResetGame()
     {
         foreach(TMP_Text cell in cells)
         {
