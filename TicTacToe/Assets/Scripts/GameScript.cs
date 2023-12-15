@@ -30,7 +30,7 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckWin();
+        
     }
 
     public void CellButton(int cell)
@@ -51,49 +51,58 @@ public class GameScript : MonoBehaviour
         }
     }
 
-    void CheckWin()
+    public void CheckWin()
     {
         //Rows
-        if (cells[0].text == cells[1].text && cells[0].text == cells[2].text)
+        if (cells[0].text == cells[1].text && cells[0].text == cells[2].text && cells[0].text != "")
         {
-            
-        }
-
-        if (cells[3].text == cells[4].text && cells[3].text == cells[5].text)
-        {
+            UpdateScore(0);
+            ResetGame();
 
         }
 
-        if (cells[6].text == cells[7].text && cells[6].text == cells[8].text)
+        if (cells[3].text == cells[4].text && cells[3].text == cells[5].text && cells[3].text != "")
         {
+            UpdateScore(3);
+            ResetGame();
+        }
 
+        if (cells[6].text == cells[7].text && cells[6].text == cells[8].text && cells[6].text != "")
+        {
+            UpdateScore(6);
+            ResetGame();
         }
 
         //Collumns
-        if (cells[0].text == cells[3].text && cells[0].text == cells[6].text)
+        if (cells[0].text == cells[3].text && cells[0].text == cells[6].text && cells[0].text != "")
         {
-
+            UpdateScore(0);
+            ResetGame();
         }
 
-        if (cells[1].text == cells[4].text && cells[1].text == cells[7].text)
+        if (cells[1].text == cells[4].text && cells[1].text == cells[7].text && cells[1].text != "")
         {
-
+            UpdateScore(1);
+            ResetGame();
         }
 
-        if (cells[2].text == cells[5].text && cells[2].text == cells[8].text)
+        if (cells[2].text == cells[5].text && cells[2].text == cells[8].text && cells[2].text != "")
         {
-
+            UpdateScore(2);
+            ResetGame();
         }
 
         //Diagonal
-        if (cells[0].text == cells[4].text && cells[0].text == cells[8].text)
+        if (cells[0].text == cells[4].text && cells[0].text == cells[8].text && cells[0].text != "")
         {
-
+            UpdateScore(0);
+            ResetGame();
         }
 
-        if (cells[2].text == cells[4].text && cells[2].text == cells[6].text)
+        if (cells[2].text == cells[4].text && cells[2].text == cells[6].text && cells[2].text != "")
         {
-
+            UpdateScore(2);
+            ResetGame();
         }
     }
 
@@ -101,12 +110,29 @@ public class GameScript : MonoBehaviour
     {
         foreach(TMP_Text cell in cells)
         {
-            cell.gameObject.SetActive(false);
+            cell.text = "";
         }
 
         foreach(Button button in cellButtons)
         {
             button.gameObject.SetActive(true);
         }
+    }
+
+    void UpdateScore(int cell)
+    {
+        if (cells[cell].text == "X")
+        {
+            xScore++;
+        }
+        else
+        {
+            oScore++;
+        }
+
+        xPlayerNameText.text = xPlayerName + " " + xScore.ToString();
+        oPlayerNameText.text = oPlayerName + " " + oScore.ToString();
+
+        ResetGame();
     }
 }
