@@ -30,7 +30,12 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(cells[0].text != "" && cells[1].text != "" && cells[2].text != ""
+            && cells[3].text != "" && cells[4].text != "" && cells[5].text != ""
+            && cells[6].text != "" && cells[7].text != "" && cells[8].text != "")
+        {
+            CheckTie();
+        }
     }
 
     public void CellButton(int cell)
@@ -58,7 +63,6 @@ public class GameScript : MonoBehaviour
         {
             UpdateScore(0);
             ResetGame();
-
         }
 
         if (cells[3].text == cells[4].text && cells[3].text == cells[5].text && cells[3].text != "")
@@ -104,6 +108,11 @@ public class GameScript : MonoBehaviour
             UpdateScore(2);
             ResetGame();
         }
+    }
+
+    void CheckTie()
+    {
+        ResetGame();
     }
 
     void ResetGame()
