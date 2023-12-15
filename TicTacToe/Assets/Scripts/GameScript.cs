@@ -11,6 +11,7 @@ public class GameScript : MonoBehaviour
 
     [SerializeField] TMP_Text xPlayerNameText;
     [SerializeField] TMP_Text oPlayerNameText;
+    [SerializeField] TMP_Text turnText;
 
     public float turn = 1;
 
@@ -25,6 +26,8 @@ public class GameScript : MonoBehaviour
     {
         xPlayerNameText.text = xPlayerName + " " + xScore.ToString();
         oPlayerNameText.text = oPlayerName + " " + oScore.ToString();
+        turnText.text = "X";
+        turnText.color = new Color(255, 0, 0);
     }
 
     // Update is called once per frame
@@ -46,12 +49,16 @@ public class GameScript : MonoBehaviour
         {
             cells[cell].text = "X";
             cells[cell].color = new Color(255, 0, 0);
+            turnText.text = "O";
+            turnText.color = new Color(134, 0, 255);
             turn--;
         }
         else if(turn == 0)
         {
             cells[cell].text = "O";
             cells[cell].color = new Color(134, 0, 255);
+            turnText.text = "X";
+            turnText.color = new Color(255, 0, 0);
             turn++;
         }
     }

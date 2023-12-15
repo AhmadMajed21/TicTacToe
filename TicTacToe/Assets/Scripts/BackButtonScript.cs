@@ -24,13 +24,6 @@ public class BackButtonScript : MonoBehaviour
 
     public void Back()
     {
-        //gameScript.xScore = 0;
-        //gameScript.oScore = 0;
-        //gameScript.ResetGame();
-        //gameScript.turn = 1;
-        //register.SetActive(true);
-        //game.SetActive(false);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
